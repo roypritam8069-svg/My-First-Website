@@ -363,3 +363,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+/* Order Popup - Hidden by default */
+.popup-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Only show when JavaScript adds active */
+.popup-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
