@@ -1251,116 +1251,116 @@ body.dark-mode .review-user img {
 body.dark-mode .review-user span {
     color: #a0b8a8;
 }
-/* ============================
-   ROYGREEN BOTANICALS - STYLE
-   PART 4: FAQ to Cookie Box
-   ============================ */
+/* =========================
+   COOKIE BOX - FINAL FIX
+   ========================= */
 
-/* ---------- FAQ ---------- */
+.cookie-box {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 10000;
 
-.faq {
-    padding: 80px 0;
-    background: var(--white);
-}
-
-body.dark-mode .faq {
-    background: #0d1a12;
-}
-
-.faq-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    margin-bottom: 16px;
-    border: 1px solid rgba(26, 92, 58, 0.08);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: var(--transition);
-}
-
-body.dark-mode .faq-item {
-    border-color: rgba(42, 74, 56, 0.3);
-}
-
-.faq-item:hover {
-    border-color: var(--green-primary);
-}
-
-.faq-question {
-    width: 100%;
-    padding: 18px 24px;
-    background: var(--off-white);
-    border: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: var(--font-primary);
+    justify-content: space-between;
+    gap: 20px;
+
+    width: min(520px, calc(100% - 48px));
+    padding: 18px 20px;
+
+    background: rgba(255, 255, 255, 0.96);
     color: var(--dark);
+
+    border: 1px solid rgba(26, 92, 58, 0.12);
+    border-radius: 16px;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.cookie-box p {
+    margin: 0;
+    flex: 1;
+
+    font-family: var(--font-primary);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--gray);
+}
+
+#acceptCookie {
+    flex-shrink: 0;
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: var(--green-primary);
+    color: #ffffff;
+
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 600;
+
     cursor: pointer;
     transition: var(--transition);
-    text-align: left;
 }
 
-body.dark-mode .faq-question {
-    background: #162a1e;
+#acceptCookie:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* Dark mode */
+body.dark-mode .cookie-box {
+    background: rgba(22, 42, 30, 0.96);
     color: #e8f0ea;
+    border-color: rgba(42, 74, 56, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
-.faq-question:hover {
-    background: var(--green-pale);
-}
-
-body.dark-mode .faq-question:hover {
-    background: #1a3a2a;
-}
-
-.faq-question i {
-    font-size: 18px;
-    color: var(--green-primary);
-    transition: var(--transition);
-    flex-shrink: 0;
-    margin-left: 16px;
-}
-
-body.dark-mode .faq-question i {
-    color: var(--gold);
-}
-
-.faq-question.active i {
-    transform: rotate(45deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    padding: 0 24px;
-    background: var(--white);
-}
-
-body.dark-mode .faq-answer {
-    background: #0d1a12;
-}
-
-.faq-answer.open {
-    max-height: 200px;
-    padding: 16px 24px 24px;
-}
-
-.faq-answer p {
-    color: var(--gray);
-    line-height: 1.8;
-    margin: 0;
-}
-
-body.dark-mode .faq-answer p {
+body.dark-mode .cookie-box p {
     color: #a0b8a8;
 }
 
+body.dark-mode #acceptCookie {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+body.dark-mode #acceptCookie:hover {
+    background: var(--gold-light);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .cookie-box {
+        left: 12px;
+        bottom: 12px;
+
+        width: calc(100% - 24px);
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .cookie-box p {
+        font-size: 12px;
+    }
+
+    #acceptCookie {
+        width: 100%;
+        padding: 11px 18px;
+    }
+}
 /* ---------- NEWSLETTER ---------- */
 
 .newsletter {
