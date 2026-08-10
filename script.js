@@ -376,10 +376,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 });
-/* =========================================
-   CONTACT FORM → WHATSAPP
-   ========================================= */
-
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
