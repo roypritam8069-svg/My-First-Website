@@ -1,36 +1,21 @@
 // ============================
 // ROYGREEN BOTANICALS - JAVASCRIPT
 // ============================
+
 document.addEventListener("DOMContentLoaded", function () {
 
+    // ---------- PRELOADER ----------
     const preloader = document.getElementById("preloader");
-
     if (preloader) {
         setTimeout(function () {
             preloader.style.opacity = "0";
-
             setTimeout(function () {
                 preloader.style.display = "none";
             }, 500);
-
-        }, 500);
-    }
-
-});
-document.addEventListener('DOMContentLoaded', function() {
-
-    // ---------- PRELOADER ----------
-
-    const preloader = document.getElementById('preloader');
-
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hide');
-        }, 1500);
+        }, 1500); // 1.5 seconds delay
     }
 
     // ---------- AOS ANIMATION ----------
-
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
@@ -41,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- THEME TOGGLE ----------
-
     const themeBtn = document.getElementById('themeBtn');
     const body = document.body;
 
@@ -68,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- MOBILE MENU ----------
-
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -97,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- HEADER SCROLL ----------
-
     const header = document.querySelector('.header');
 
     if (header) {
@@ -111,15 +93,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- COUNTER ANIMATION ----------
-
     const counters = document.querySelectorAll('.counter');
 
     function animateCounter(counter) {
         const target = parseInt(counter.textContent);
         let current = 0;
         const increment = Math.ceil(target / 60);
-        const duration = 2000;
-        const stepTime = Math.floor(duration / 60);
+        const stepTime = 2000 / 60;
 
         const timer = setInterval(() => {
             current += increment;
@@ -153,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ---------- FAQ ACCORDION ----------
-
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
@@ -165,18 +144,21 @@ document.addEventListener('DOMContentLoaded', function() {
             faqQuestions.forEach(q => {
                 if (q !== this) {
                     q.classList.remove('active');
-                    q.nextElementSibling.classList.remove('open');
+                    if (q.nextElementSibling) {
+                        q.nextElementSibling.classList.remove('open');
+                    }
                 }
             });
 
             // Toggle current FAQ
             this.classList.toggle('active');
-            answer.classList.toggle('open');
+            if (answer) {
+                answer.classList.toggle('open');
+            }
         });
     });
 
     // ---------- NEWSLETTER FORM ----------
-
     const newsletterForm = document.querySelector('.newsletter-wrapper form');
 
     if (newsletterForm) {
@@ -191,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- CONTACT FORM ----------
-
     const contactForm = document.querySelector('.contact-form form');
 
     if (contactForm) {
@@ -203,7 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- SCROLL TO TOP ----------
-
     const scrollBtn = document.getElementById('scrollTop');
 
     if (scrollBtn) {
@@ -224,7 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- ORDER POPUP ----------
-
     const popup = document.getElementById('orderPopup');
     const closePopup = document.querySelector('.close-popup');
 
@@ -245,7 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- IMAGE LIGHTBOX ----------
-
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const closeLightbox = document.getElementById('closeLightbox');
@@ -290,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ---------- COOKIE CONSENT ----------
-
     const cookieBox = document.querySelector('.cookie-box');
     const acceptBtn = document.getElementById('acceptCookie');
 
@@ -309,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- SMOOTH SCROLL ----------
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -332,7 +308,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ---------- NAVIGATION ACTIVE LINK ----------
-
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-menu a');
 
@@ -360,7 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ---------- HERO IMAGE PARALLAX ----------
-
     const heroImage = document.querySelector('.hero-image img');
 
     if (heroImage) {
@@ -377,17 +351,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-});
-/* Order Popup - Hidden by default */
-.popup-overlay {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-}
+    // ---------- FIX: POPUP OVERLAY ----------
+    // Make sure popup is hidden by default
+    if (popup) {
+        popup.style.display = 'none';
+    }
 
-/* Only show when JavaScript adds active */
-.popup-overlay.active {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-}
+    // Function to show popup (call this when needed)
+    window.showOrderPopup = function() {
+        if (popup) {
+            popup.style.display = 'flex';
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    // Function to hide popup
+    window.hideOrderPopup = function() {
+        if (popup) {
+            popup.classList.remove('active');
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+});
