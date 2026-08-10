@@ -613,55 +613,82 @@
         </div>
     </section>
 
-    <!-- =========================
-            CONTACT
-    ========================== -->
-    <section id="contact" class="contact">
-        <div class="container contact-wrapper">
+  <!-- =========================
+        CONTACT
+========================== -->
+<section id="contact" class="contact">
+    <div class="container contact-wrapper">
 
-            <div class="contact-info">
-                <span class="section-tag">CONTACT US</span>
-                <h2>We'd Love To Hear From You</h2>
-                <p>Feel free to contact us for product information or orders.</p>
+        <div class="contact-info">
+            <span class="section-tag">CONTACT US</span>
+            <h2>We'd Love To Hear From You</h2>
+            <p>Feel free to contact us for product information or orders.</p>
 
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4>Address</h4>
-                        <p>Dinhata, Madan Mohan Para, Cooch Behar, West Bengal - 736135</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>+91 6294667229</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>roypritam8069@gmail.com</p>
-                    </div>
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <h4>Address</h4>
+                    <p>Dinhata, Madan Mohan Para, Cooch Behar, West Bengal - 736135</p>
                 </div>
             </div>
 
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="tel" placeholder="Phone Number">
-                    <textarea rows="6" placeholder="Write Your Message" required></textarea>
-                    <button class="btn btn-primary" type="submit">Send Message</button>
-                </form>
+            <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 6294667229</p>
+                </div>
             </div>
 
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>roypritam8069@gmail.com</p>
+                </div>
+            </div>
         </div>
-    </section>
 
+        <div class="contact-form">
+            <form id="contactForm">
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="customerEmail"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+                <textarea
+                    id="customerMessage"
+                    rows="6"
+                    placeholder="Write Your Message"
+                    required
+                ></textarea>
+
+                <button class="btn btn-primary" type="submit">
+                    Send Message
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
     <!-- =========================
             GOOGLE MAP
     ========================== -->
