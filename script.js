@@ -213,13 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('orderPopup');
     const closePopup = document.querySelector('.close-popup');
 
-    // Show popup after 5 seconds
-    setTimeout(() => {
-        if (popup) {
-            popup.classList.add('active');
-        }
-    }, 5000);
-
     // Close popup
     if (closePopup && popup) {
         closePopup.addEventListener('click', function() {
