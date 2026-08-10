@@ -376,3 +376,42 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 });
+/* =========================================
+   CONTACT FORM → WHATSAPP
+   ========================================= */
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("customerName").value.trim();
+        const email = document.getElementById("customerEmail").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const message = document.getElementById("customerMessage").value.trim();
+
+        if (!name || !email || !phone || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const whatsappMessage =
+`🌿 ROYGREEN Botanicals - Customer Enquiry
+
+👤 Name: ${name}
+📧 Email: ${email}
+📱 Phone: ${phone}
+
+💬 Message:
+${message}
+
+Please contact me regarding my enquiry.`;
+
+        const whatsappURL =
+            "https://wa.me/916294667229?text=" +
+            encodeURIComponent(whatsappMessage);
+
+        window.open(whatsappURL, "_blank");
+    });
+}
